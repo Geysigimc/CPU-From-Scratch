@@ -1,0 +1,6 @@
+# Icarus Verilog generated files.
+*.vvp
+*.vcd
+
+# MacOs System Files.
+.DS_Store
