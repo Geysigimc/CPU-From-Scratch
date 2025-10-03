@@ -11,7 +11,20 @@ The logic is implemented using continuous assignments (`assign`). The boolean fo
 - `Sum = A ^ B ^ Cin;`
 - `Cout = (A & B) | (Cin & (A ^ B));`
 
-## 3. Verification
+
+## 3. Ports.
+
+
+| Name  | Direction | Width (Bits) | Description                 |
+| :---- | :-------: | :----------: | :-------------------------- |
+| `A`   |   Input   |      1       | First input operand |
+| `B`   |   Input   |      1       | Second input operand |
+| `Cin` |   Input   |      1       | Carry-in bit |
+| `Sum` |  Output   |      1       | Sum output bit|
+| `Cout`|  Output   |      1       | Carry-out bit|
+
+
+## 4. Verification
 
 A testbench (`full_adder_tb.v`) was created to verify the module's functionality. The testbench systematically checks all 8 possible input combinations (from 3'b000 to 3'b111), applying a new vector every 10 time units.
 
@@ -19,7 +32,7 @@ The resulting waveform, visualized using WaveTrace in VS Code, confirmed that th
 
 ![Full Adder Waveform](full_adder_waves.png)
 
-## 4. Challenges & Learnings
+## 5. Challenges & Learnings
 
 - **Challenge:** I initially forgot to add the `#10` time delays between test vectors in the testbench. This caused the simulation to execute all assignments at time 0, and the waveform only showed the final state (111).
 
